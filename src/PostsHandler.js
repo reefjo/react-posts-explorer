@@ -9,8 +9,28 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import "./PostsHandler.css";
 import Post from "./Post";
+import Pagination from "./Pagination";
+
+const ASCENDING = "ascending";
+const DESCENDING = "descending";
+const NO_SORTING = "No Sorting";
 
 function PostsHandler({ posts, setPosts }) {
+  const [sortOrder, setSortOrder] = useState(NO_SORTING);
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+  };
+  const getSortedPosts = (postsToSort) => {
+    if(sortOrder === ASCENDING){
+      return [...postsToSort].sort((a,b) => a.title.localeCompare(b.title));
+    }
+    else if (sortOrder === DESCENDING){
+      return [...postsToSort].sort((a,b) => b.title.localeCompare(a.title));
+    }
+    return postsToSort;  // no sorting
+  } 
+
+
   /* First filter by author, then filter by pages */
   const uniqueAuthorIds = useMemo(
     () => [...new Set(posts.map((post) => post.userId))],
@@ -38,6 +58,7 @@ function PostsHandler({ posts, setPosts }) {
   const allowedPosts = posts.filter((post) =>
     allowedAuthorIds.includes(post.userId)
   );
+
   console.log("posts:", posts, "allowedPosts:", allowedPosts);
   const totalPages = Math.max(
     1,
@@ -113,7 +134,15 @@ function PostsHandler({ posts, setPosts }) {
           Next Page
         </button>
       </div>
+      <div className="sorting">
+        <label>Sort title by:</label>
+        <select className="sort-select" value = {sortOrder} onChange={handleSortChange}>
+          <option value = {NO_SORTING}>{NO_SORTING}</option>
+          <option value = {ASCENDING}>{ASCENDING}</option>
+          <option value = {DESCENDING}>{DESCENDING}</option>
+        </select>
 
+      </div>
       <div className="posts-list">
         {currentPosts.map((post) => {
           return <Post key={post.id} post={post} onSave={handleOnSave} />;

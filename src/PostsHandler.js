@@ -11,7 +11,7 @@ import "./PostsHandler.css";
 import Post from "./Post";
 import Pagination from "./Pagination";
 import AutoFilter from "./AuthorFilter";
-import { ASCENDING, DESCENDING, NO_SORTING } from "./constants";
+import { ASCENDING, DESCENDING, NO_SORTING, POSTS_PER_PAGE } from "./constants";
 
 const getSortedPosts = (postsToSort, sortOrder) => {
   if (sortOrder === ASCENDING) {
@@ -48,7 +48,6 @@ function PostsHandler({ posts, setPosts }) {
     }
   }, [uniqueAuthorIds]);
 
-  const POSTS_PER_PAGE = 5;
   const [currentPage, setCurrentPage] = useState(1);
 
   const allowedPosts = posts.filter((post) =>

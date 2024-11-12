@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from 'react';
+import useFetch from './useFetch';
+import PostsHandler from './PostsHandler';
 
 function App() {
+  const [posts, setPosts] = useFetch('https://jsonplaceholder.typicode.com/posts');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+        <PostsHandler posts={posts} setPosts={setPosts} />
+        </div>   
     </div>
   );
 }

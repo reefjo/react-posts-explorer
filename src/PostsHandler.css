@@ -1,0 +1,29 @@
+
+
+.posts-list{
+  display: flex;
+  gap: 15px;
+  height: 400px;
+  overflow: auto;
+}
+.post{
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+.post h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid black; /* This adds the line below the title */
+
+}
+
+.post p {
+  font-size: 1.1rem;
+  color: #555;
+}

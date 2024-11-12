@@ -10,28 +10,24 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import "./PostsHandler.css";
 import Post from "./Post";
 import Pagination from "./Pagination";
+import AutoFilter from "./AuthorFilter";
+import { ASCENDING, DESCENDING, NO_SORTING } from "./constants";
 
-const ASCENDING = "ascending";
-const DESCENDING = "descending";
-const NO_SORTING = "No Sorting";
+const getSortedPosts = (postsToSort, sortOrder) => {
+  if (sortOrder === ASCENDING) {
+    return [...postsToSort].sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortOrder === DESCENDING) {
+    return [...postsToSort].sort((a, b) => b.title.localeCompare(a.title));
+  }
+  return postsToSort; // no sorting
+};
 
 function PostsHandler({ posts, setPosts }) {
   const [sortOrder, setSortOrder] = useState(NO_SORTING);
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
   };
-  const getSortedPosts = (postsToSort) => {
-    if(sortOrder === ASCENDING){
-      return [...postsToSort].sort((a,b) => a.title.localeCompare(b.title));
-    }
-    else if (sortOrder === DESCENDING){
-      return [...postsToSort].sort((a,b) => b.title.localeCompare(a.title));
-    }
-    return postsToSort;  // no sorting
-  } 
 
-
-  /* First filter by author, then filter by pages */
   const uniqueAuthorIds = useMemo(
     () => [...new Set(posts.map((post) => post.userId))],
     [posts]
@@ -76,7 +72,7 @@ function PostsHandler({ posts, setPosts }) {
     nextPageStartIndex + POSTS_PER_PAGE
   );
 
-  const toggleAuthorFilter = (id) => {
+  const onToggleAuthorFilter = (id) => {
     let newAllowedIds = [...allowedAuthorIds];
     if (allowedAuthorIds.includes(id)) {
       newAllowedIds = newAllowedIds.filter((currentId) => currentId !== id);
@@ -102,46 +98,31 @@ function PostsHandler({ posts, setPosts }) {
     );
   };
 
-  const getButtonClass = (id) => {
-    return allowedAuthorIds.includes(id)
-      ? "button-allowed"
-      : "button-not-allowed";
-  };
-
   return (
     <div className="posts-handler">
-      {/* Author filter UI */}
-      <div className="author-filter">
-        {uniqueAuthorIds.map((id) => (
-          <button
-            key={id}
-            className={`button ${getButtonClass(id)}`}
-            onClick={() => toggleAuthorFilter(id)}
-          >
-            User {id}
-          </button>
-        ))}
-      </div>
+      <AutoFilter
+        uniqueAuthorIds={uniqueAuthorIds}
+        allowedAuthorIds={allowedAuthorIds}
+        onToggleAuthorFilter={onToggleAuthorFilter}
+      />
 
-      <div className="paging">
-        <label>
-          page: {currentPage} out of {totalPages}
-        </label>
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-          Previous Page
-        </button>
-        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-          Next Page
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={goToNextPage}
+        onPrevPage={goToPreviousPage}
+      />
       <div className="sorting">
         <label>Sort title by:</label>
-        <select className="sort-select" value = {sortOrder} onChange={handleSortChange}>
-          <option value = {NO_SORTING}>{NO_SORTING}</option>
-          <option value = {ASCENDING}>{ASCENDING}</option>
-          <option value = {DESCENDING}>{DESCENDING}</option>
+        <select
+          className="sort-select"
+          value={sortOrder}
+          onChange={handleSortChange}
+        >
+          <option value={NO_SORTING}>{NO_SORTING}</option>
+          <option value={ASCENDING}>{ASCENDING}</option>
+          <option value={DESCENDING}>{DESCENDING}</option>
         </select>
-
       </div>
       <div className="posts-list">
         {currentPosts.map((post) => {

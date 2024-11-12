@@ -29,7 +29,7 @@
 
 .button {
   color: white;
-  margin: 5px;
+  margin: 5px;  
   padding: 10px;
   border-radius: 5px;
   color: 'white',
@@ -39,4 +39,16 @@
 }
 .button-not-allowed{
   background-color: red;
+}
+
+.paging {
+  display: flex;
+  align-items: center;     /* Centers the pagination container vertically */
+  margin: 20px 0;          /* Adds spacing above and below the pagination */
+  font-size: 20px;         /* Font size for the text */
+}
+/* Style for the label showing the current page */
+.paging label {
+  margin-right: 15px;      /* Adds spacing between the label and the buttons */
+  font-weight: bold;       /* Makes the page label text bold */
 }

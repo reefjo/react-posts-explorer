@@ -4,7 +4,6 @@
   display: flex;
   gap: 15px;
   height: 400px;
-  overflow: auto;
 }
 .post{
   background-color: white;
@@ -26,4 +25,18 @@
 .post p {
   font-size: 1.1rem;
   color: #555;
+}
+
+.button {
+  color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  color: 'white',
+}
+.button-allowed{
+  background-color: green;
+}
+.button-not-allowed{
+  background-color: red;
 }

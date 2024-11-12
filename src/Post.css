@@ -1,0 +1,59 @@
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* Center everything horizontally */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+
+.post-edit {
+  flex-grow: 1; /* Make this area take up remaining space */
+}
+
+ .edit-input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+
+textarea.edit-input {
+  min-height: 6em; /* Give the textarea more vertical space */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+button{
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-title, .post-body {
+  overflow: auto; /* Enable scroll if the content is too large */
+}
+.post-body{
+  max-height: 8em;
+}
+.post-title{
+  max-height: 4em;
+}
+
+.post-author {
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between author and title */
+  font-size: 1.2em;
+  text-align: center; /* Center the author name */
+  color: red;
+  
+}

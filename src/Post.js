@@ -1,34 +1,73 @@
-import React, {useState} from 'react';
-
-function Post({post, onSave}){
+import React, { useState } from "react";
+import './Post.css'
+function Post({ post, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState("");
-  const [editedBody, setEditedBody] = useState("");
-  
-  return(
-    <div className='post'>
-    <div className='post-data'>
+  const [editedTitle, setEditedTitle] = useState(post.title);
+  const [editedBody, setEditedBody] = useState(post.body);
 
-  <h3>{isEditing? post.title : editedTitle} (User {post.userId})</h3>
-  <p>{isEditing ? post.body : editedBody}</p>
-    </div>
-  <div className='post-buttons'>
-    {!isEditing ? (
 
-    <button onClick={setIsEditing(true)}>Edit</button>
-    )
-    : (
-      <div className='editing-buttons'>
-      <button onClick={onSave}>Save</button>
-      <button onClick={cancelEdit}>Cancel</button>
-      </div>
-    )
+  const handleAuthorChange = () => {
 
   }
+
+  const handleCancelEdit = () => {
+    setEditedTitle(post.title);
+    setEditedBody(post.body);
+    setIsEditing(false);
+  };
+
+  const handleSaveClick = () => {
+    setIsEditing(false);
+    onSave(post.id, editedTitle, editedBody);
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  }
+  
+
+  /*if not editing: show with h3 and p.
+  if editing: show text area , initially with the post.title and post.body*/
+  return (
+    <div className="post">
+
+      <div className="post-author">
+        <span>Author: {post.userId}</span>
+      </div>
+      <div className="post-edit">
+      {isEditing ? (
+        <>  
+          <textarea
+            value = {editedTitle}
+            onChange={(e) => setEditedTitle(e.target.value)}
+            className="edit-input"
+          />
+          <textarea
+          value = {editedBody}
+          onChange={(e) => setEditedBody(e.target.value)}
+          className="edit-input"
+          />
+        </>
+
+      ) : (
+        <>
+          <h3 className="post-title">{post.title} </h3>
+          <p className="post-body">{post.body}</p>
+        </>
+      )}
     </div>
-  </div>
-
-  )
-
-
+    <div className="post-button">
+      {isEditing? (
+        <>
+        <button onClick={handleSaveClick}>Save</button>
+        <button onClick={handleCancelEdit}>Cancel </button>
+        </>
+      ) : (
+        <button onClick={handleEditClick}>Edit</button>
+      )}
+    </div>
+    </div>
+  );
 }
+
+export default Post;

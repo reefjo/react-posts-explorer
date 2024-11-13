@@ -7,6 +7,7 @@ export const getSortedPosts = (posts, sortOrder) => {
   }
   return posts; // no sorting
 };
+
 export function getPostsForPage(posts, page) {
   const nextPageStartIndex = (page - 1) * POSTS_PER_PAGE;
   return posts.slice(
@@ -14,4 +15,4 @@ export function getPostsForPage(posts, page) {
     nextPageStartIndex + POSTS_PER_PAGE
   );
 
-}
+};

@@ -2,3 +2,10 @@ body{
   background-color: #f4f4f4;
 }
 
+.error-message .loading-message{
+  font-size: 100em;
+
+}
+.loading-message{
+  font-size: 4em;
+}

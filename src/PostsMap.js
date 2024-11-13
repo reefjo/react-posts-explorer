@@ -1,10 +1,11 @@
 import L from 'leaflet'; 
 import 'leaflet/dist/leaflet.css'; 
-import './Map.css'
+import './PostsMap.css'
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-const Map = ({ posts }) => {
+const PostsMap = ({ posts, coordinatesMap }) => {
+  console.log("coordinartes map:",coordinatesMap)
   // Fix default marker icon issue (Leaflet can't find the default icon automatically)
   delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
@@ -16,19 +17,22 @@ const Map = ({ posts }) => {
   return (
     <MapContainer center={[51.505, -0.09]} zoom={2} style={{ height: "500px", width: "100%" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {posts.map((post, index) => (
-        <Marker key={index} position={[post.lat, post.lon]}>
+      {posts.map((post, index) => {
+        const {lat, lon} = coordinatesMap.get(post.id);
+        return(
+        <Marker key={index} position={[lat, lon]}>
           {/* Add the custom-popup class to Popup */}
           <Popup className="custom-popup">
-            <strong color='red'>User {post.userId}</strong><br />
+            <strong className='user-name'>User {post.userId}</strong><br />
             <strong>{post.title}</strong><br />
             {post.body}<br />
-            Coordinates: {post.lat}, {post.lon}
+            Coordinates: {lat}, {lon}
           </Popup>
         </Marker>
-      ))}
+        );
+     })}
     </MapContainer>
   );
 };
 
-export default Map;
+export default PostsMap;

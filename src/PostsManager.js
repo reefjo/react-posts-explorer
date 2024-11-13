@@ -1,11 +1,9 @@
 import "./PostsHandler.css";
-import Post from "./Post";
 import Pagination from "./Pagination";
 import UserFilter from "./UserFilter";
 import { getPostsForPage } from "./utils";
 import usePagination from "./usePagination";
 import Sort from "./Sort";
-import useUserFilter from "./useUserFilter";
 import useSorting from "./useSorting";
 import useUpdatePost from "./useUpdatePost";
 import PostList from "./PostList";

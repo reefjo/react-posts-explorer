@@ -6,6 +6,7 @@ import useUserFilter from "./useUserFilter";
 import useCoordinatesMap from "./useMapCoordinates";
 import Loading from "./Loading";
 import Error from "./Error";
+import { POSTS_API_URL } from "./constants";
 
 function App() {
   const {
@@ -13,7 +14,7 @@ function App() {
     setData: setPosts,
     error,
     isLoading,
-  } = useFetch("https://jsonplaceholder.typicode.com/posts");
+  } = useFetch(POSTS_API_URL);
 
   /* Once initialized (isLoading = false), call useUserFilter and populate coordinatesMap */
   const { allUniqueUserIds, filteredUserIds, filteredPosts, toggleUserFilter } =
@@ -23,7 +24,7 @@ function App() {
 
   if (isLoading) return <Loading />;
 
-  if (error) return <Error error = {error}/>  
+  if (error) return <Error error={error} />;
 
   return (
     <div className="App">
@@ -35,10 +36,7 @@ function App() {
         filteredPosts={filteredPosts}
         toggleUserFilter={toggleUserFilter}
       />
-        <PostsMap
-          posts={filteredPosts}
-          coordinatesMap={coordinatesMap.current}
-        />
+      <PostsMap posts={filteredPosts} coordinatesMap={coordinatesMap.current} />
     </div>
   );
 }

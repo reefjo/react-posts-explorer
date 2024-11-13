@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 
 function useUserFilter(posts, isLoading) {
   const allUniqueUserIds = useMemo(
@@ -6,21 +6,22 @@ function useUserFilter(posts, isLoading) {
     [posts]
   );
   const [filteredUserIds, setFilteredUserIds] = useState([]);
+  const firstTime = useRef(true);
 
-  // The goal is to update posts only when fetched initially
   useEffect(() => {
-    if(!isLoading){
+    if(!isLoading && firstTime.current){
     console.log("We on first render. uniqueUserIds:", allUniqueUserIds);
     setFilteredUserIds(allUniqueUserIds);
+    firstTime.current = false;
     }
-  }, [isLoading]);
+  }, [isLoading, allUniqueUserIds]);
 
-  const toggleUserFilter = (id) => {
+  const toggleUserFilter = (userId) => {
     let newFilteredIds = [...filteredUserIds];
-    if (filteredUserIds.includes(id)) {
-      newFilteredIds = newFilteredIds.filter((currentId) => currentId !== id);
+    if (filteredUserIds.includes(userId)) {
+      newFilteredIds = newFilteredIds.filter((currentId) => currentId !== userId);
     } else {
-      newFilteredIds.push(id); // allow the id
+      newFilteredIds.push(userId); // allow this user id
     }
     setFilteredUserIds(newFilteredIds);
   };

@@ -1,19 +1,18 @@
-  import { useState, useEffect, useRef, useMemo } from "react";
   import "./PostsHandler.css";
   import Post from "./Post";
   import Pagination from "./Pagination";
-  import AuthorFilter from "./AuthorFilter";
+  import UserFilter from "./UserFilter";
   import {getPostsForPage } from "./utils";
   import usePagination from "./usePagination";
   import Sort from "./Sort";
-  import useAuthorFilter from "./useAuthorFilter";
+  import useUserFilter from "./useUserFilter";
   import useSorting from "./useSorting";
   import useUpdatePost from "./useUpdatePost";
 
   function PostsHandler({ posts, setPosts }) {
 
 
-    const {uniqueAuthorIds, allowedAuthorIds, allowedPosts, toggleAuthorFilter} = useAuthorFilter(posts);
+    const {uniqueUserIds, allowedUserIds, allowedPosts, toggleUserFilter} = useUserFilter(posts);
 
     const {currentPage, totalPages, onNextPage, onPreviousPage} = usePagination(allowedPosts);
       
@@ -21,13 +20,13 @@
     const currentPosts = getPostsForPage(sortedPosts, currentPage);
 
     const {handleOnSave} = useUpdatePost(posts, setPosts);
-    
+
     return (
       <div className="posts-handler">
-        <AuthorFilter
-          uniqueAuthorIds={uniqueAuthorIds}
-          allowedAuthorIds={allowedAuthorIds}
-          onToggleAuthorFilter={toggleAuthorFilter}
+        <UserFilter
+          uniqueUserIds={uniqueUserIds}
+          allowedUserIds={allowedUserIds}
+          onToggleUserFilter={toggleUserFilter}
         />
 
         <Pagination

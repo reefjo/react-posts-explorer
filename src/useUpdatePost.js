@@ -1,4 +1,3 @@
-import {useState} from 'react';
 
 function useUpdatePost(posts, setPosts){
   const handleOnSave = (id, newTitle, newBody) => {

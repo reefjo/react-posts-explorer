@@ -6,10 +6,6 @@ function Post({ post, onSave }) {
   const [editedBody, setEditedBody] = useState(post.body);
 
 
-  const handleAuthorChange = () => {
-
-  }
-
   const handleCancelEdit = () => {
     setEditedTitle(post.title);
     setEditedBody(post.body);

@@ -4,7 +4,7 @@ const getButtonClass = (id, allowedAuthorIds) => {
     : "button-not-allowed";
 };
 
-const AutoFilter = ({uniqueAuthorIds, allowedAuthorIds, onToggleAuthorFilter}) => {
+const AuthorFilter = ({uniqueAuthorIds, allowedAuthorIds, onToggleAuthorFilter}) => {
   console.log("received unique authors:",uniqueAuthorIds)
 
 return(
@@ -22,4 +22,4 @@ return(
 )
 
 }
-export default AutoFilter
+export default AuthorFilter

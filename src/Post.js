@@ -26,11 +26,8 @@ function Post({ post, onSave }) {
   }
   
 
-  /*if not editing: show with h3 and p.
-  if editing: show text area , initially with the post.title and post.body*/
   return (
     <div className="post">
-
       <div className="post-author">
         <span>Author: {post.userId}</span>
       </div>

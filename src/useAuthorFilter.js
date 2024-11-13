@@ -15,7 +15,7 @@ function useAuthorFilter(posts){
     }
   }, [uniqueAuthorIds]);
 
-  const onToggleAuthorFilter = (id) => {
+  const toggleAuthorFilter = (id) => {
     let newAllowedIds = [...allowedAuthorIds];
     if (allowedAuthorIds.includes(id)) {
       newAllowedIds = newAllowedIds.filter((currentId) => currentId !== id);
@@ -31,7 +31,7 @@ function useAuthorFilter(posts){
   );
 
 
-  return {uniqueAuthorIds, allowedAuthorIds, allowedPosts, onToggleAuthorFilter}
+  return {uniqueAuthorIds, allowedAuthorIds, allowedPosts, toggleAuthorFilter}
 
 
 }

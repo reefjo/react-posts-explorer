@@ -51,9 +51,12 @@ button{
 
 .post-author {
   font-weight: bold;
-  margin-bottom: 10px; /* Space between author and title */
   font-size: 1.2em;
-  text-align: center; /* Center the author name */
+  text-align: center; 
   color: red;
-  
+}
+.toggle-message{
+  display: block;
+  font-weight: bold;
+
 }

@@ -18,7 +18,7 @@
 .post h3 {
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 2px solid black; /* This adds the line below the title */
+  border-bottom: 2px solid black; 
 
 }
 
@@ -34,21 +34,21 @@
   border-radius: 5px;
   color: 'white',
 }
-.button-filtered{
+.user-button-filtered{
   background-color: green;
 }
-.button-not-filtered{
+.user-button-not-filtered{
   background-color: red;
 }
 
 .paging {
   display: flex;
-  align-items: center;     /* Centers the pagination container vertically */
-  margin: 20px 0;          /* Adds spacing above and below the pagination */
-  font-size: 20px;         /* Font size for the text */
+  align-items: center;     
+  margin: 20px 0;          
+  font-size: 20px;         
 }
-/* Style for the label showing the current page */
+
 .paging label {
-  margin-right: 15px;      /* Adds spacing between the label and the buttons */
-  font-weight: bold;       /* Makes the page label text bold */
+  margin-right: 15px;      
+  font-weight: bold;      
 }

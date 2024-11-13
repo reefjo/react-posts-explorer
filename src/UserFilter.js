@@ -1,7 +1,7 @@
-const getButtonClass = (id, filteredUserIds) => {
+const getUserButtonClass = (id, filteredUserIds) => {
   return filteredUserIds.includes(id)
-    ? "button-filtered"
-    : "button-not-filtered";
+    ? "user-button-filtered"
+    : "user-button-not-filtered";
 };
 
 const UserFilter = ({allUniqueUserIds, filteredUserIds, onToggleUserFilter}) => {
@@ -9,10 +9,11 @@ const UserFilter = ({allUniqueUserIds, filteredUserIds, onToggleUserFilter}) => 
 
 return(
   <div className="user-filter">
+    <span className="toggle-message">Click to toggle on/off users to display:</span>
   {allUniqueUserIds.map((id) => (
     <button
       key={id}
-      className={`button ${getButtonClass(id, filteredUserIds)}`}
+      className={`button ${getUserButtonClass(id, filteredUserIds)}`}
       onClick={() => onToggleUserFilter(id)}
     >
       User {id}

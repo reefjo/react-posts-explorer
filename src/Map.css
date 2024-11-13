@@ -1,0 +1,6 @@
+/* Ensuring popup text doesn't appear too large when post content is long */
+.custom-popup .leaflet-popup-content {
+  max-height: 200px; 
+  overflow-y: auto;  
+  white-space: pre-wrap; 
+}

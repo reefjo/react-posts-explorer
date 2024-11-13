@@ -9,7 +9,7 @@ function useSorting(filteredPosts) {
     setSortOrder(e.target.value);
   };
   const sortedPosts = getSortedPosts(filteredPosts, sortOrder);
-  
-  return {sortOrder, handleSortChange, sortedPosts};
+
+  return { sortOrder, handleSortChange, sortedPosts };
 }
-export default useSorting
+export default useSorting;

@@ -6,7 +6,7 @@ function useUserFilter(posts, isLoading) {
     [posts]
   );
   const [filteredUserIds, setFilteredUserIds] = useState([]);
-  const firstTime = useRef(true);  
+  const firstTime = useRef(true);
 
   // Initialize filteredUserIds to include all unique user IDs after fetching posts for the first time.
   useEffect(() => {

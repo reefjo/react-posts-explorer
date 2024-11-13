@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center; /* Center everything horizontally */
+  align-items: center; 
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -12,7 +12,7 @@
 }
 
 .post-edit {
-  flex-grow: 1; /* Make this area take up remaining space */
+  flex-grow: 1; 
 }
  .edit-input {
   width: 100%;
@@ -23,8 +23,8 @@
   border: 1px solid #ddd;
 }
 textarea.edit-input {
-  min-height: 6em; /* Give the textarea more vertical space */
-  resize: vertical; /* Allow vertical resizing */
+  min-height: 6em; 
+  resize: vertical; 
 }
 
 button{
@@ -36,7 +36,7 @@ button{
 }
 
 .post-title, .post-body {
-  overflow: auto; /* Enable scroll if the content is too large */
+  overflow: auto; 
 }
 .post-body{
   max-height: 8em;

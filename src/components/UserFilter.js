@@ -12,7 +12,7 @@ const UserFilter = ({
   return (
     <div className="user-filter">
       <span className="toggle-message">
-        Click to toggle on/off users to display:
+        Click to toggle on/off users:
       </span>
       {allUniqueUserIds.map((id) => (
         <button

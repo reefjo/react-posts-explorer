@@ -1,4 +1,4 @@
-function useUpdatePost(posts, setPosts){
+function useUpdatePost(posts, setPosts) {
   const handleOnSave = (id, newTitle, newBody) => {
     setPosts(
       posts.map((post) => {
@@ -8,7 +8,7 @@ function useUpdatePost(posts, setPosts){
       })
     );
   };
-  return {handleOnSave};
+  return { handleOnSave };
 }
 
 export default useUpdatePost;

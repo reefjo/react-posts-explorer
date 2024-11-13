@@ -3,7 +3,6 @@ const useCoordinatesMap = (posts, isLoading) => {
   const coordinatesMap = useRef(new Map());
 
   useEffect(() => {
-      console.log("Populating coordinatesMap with initial data...");
       posts.forEach((post) => {
         if(!coordinatesMap.current.has(post.id)){
         coordinatesMap.current.set(post.id, {

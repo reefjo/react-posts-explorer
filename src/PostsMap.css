@@ -1,9 +1,19 @@
 /* Ensuring popup text doesn't appear too large when post content is long */
+.map-container{
+  height: 500px;
+  width: 100%;
+}
 .custom-popup .leaflet-popup-content {
   max-height: 200px; 
   overflow-y: auto;  
   white-space: pre-wrap; 
 }
-.user-name{
+.user-id{
   color: red;
+}
+.post-title{
+  font-weight: bold;
+  border-bottom: 2px solid black;
+
+
 }

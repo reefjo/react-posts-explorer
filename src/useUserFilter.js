@@ -6,20 +6,22 @@ function useUserFilter(posts, isLoading) {
     [posts]
   );
   const [filteredUserIds, setFilteredUserIds] = useState([]);
-  const firstTime = useRef(true);
+  const firstTime = useRef(true);  
 
+  // Initialize filteredUserIds to include all unique user IDs after fetching posts for the first time.
   useEffect(() => {
-    if(!isLoading && firstTime.current){
-    console.log("We on first render. uniqueUserIds:", allUniqueUserIds);
-    setFilteredUserIds(allUniqueUserIds);
-    firstTime.current = false;
+    if (!isLoading && firstTime.current) {
+      setFilteredUserIds(allUniqueUserIds);
+      firstTime.current = false;
     }
   }, [isLoading, allUniqueUserIds]);
 
   const toggleUserFilter = (userId) => {
     let newFilteredIds = [...filteredUserIds];
     if (filteredUserIds.includes(userId)) {
-      newFilteredIds = newFilteredIds.filter((currentId) => currentId !== userId);
+      newFilteredIds = newFilteredIds.filter(
+        (currentId) => currentId !== userId
+      );
     } else {
       newFilteredIds.push(userId); // allow this user id
     }

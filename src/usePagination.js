@@ -1,16 +1,16 @@
-import {useState, useEffect} from 'react';
-import { POSTS_PER_PAGE } from './constants';
+import { useState, useEffect } from "react";
+import { POSTS_PER_PAGE } from "./constants";
 
 const usePagination = (filteredPosts) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.max(
-    1,  
+    1,
     Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   );
 
-  useEffect (() => {
-    if(currentPage > totalPages){
+  useEffect(() => {
+    if (currentPage > totalPages) {
       setCurrentPage(totalPages);
     }
   }, [filteredPosts, currentPage, totalPages]);
@@ -18,12 +18,11 @@ const usePagination = (filteredPosts) => {
   const onNextPage = () => setCurrentPage(currentPage + 1);
   const onPreviousPage = () => setCurrentPage(currentPage - 1);
 
-  return{
+  return {
     currentPage,
     totalPages,
     onNextPage,
     onPreviousPage,
   };
-
 };
-export default usePagination
+export default usePagination;

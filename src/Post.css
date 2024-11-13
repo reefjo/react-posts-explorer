@@ -11,11 +11,9 @@
   background-color: #f9f9f9;
 }
 
-
 .post-edit {
   flex-grow: 1; /* Make this area take up remaining space */
 }
-
  .edit-input {
   width: 100%;
   margin-top: 10px;
@@ -24,8 +22,6 @@
   border-radius: 4px;
   border: 1px solid #ddd;
 }
-
-
 textarea.edit-input {
   min-height: 6em; /* Give the textarea more vertical space */
   resize: vertical; /* Allow vertical resizing */
@@ -55,8 +51,8 @@ button{
   text-align: center; 
   color: red;
 }
+
 .toggle-message{
   display: block;
   font-weight: bold;
-
 }

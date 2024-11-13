@@ -1,10 +1,9 @@
-
-
 .posts-list{
   display: flex;
   gap: 15px;
   height: 400px;
 }
+
 .post{
   background-color: white;
   padding: 20px;
@@ -47,7 +46,6 @@
   margin: 20px 0;          
   font-size: 20px;         
 }
-
 .paging label {
   margin-right: 15px;      
   font-weight: bold;      

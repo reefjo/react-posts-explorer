@@ -8,9 +8,14 @@ import useSorting from "./useSorting";
 import useUpdatePost from "./useUpdatePost";
 import PostList from "./PostList";
 
-function PostsManager({ posts, setPosts, allUniqueUserIds, filteredUserIds, filteredPosts, toggleUserFilter}) {
-
-
+function PostsManager({
+  posts,
+  setPosts,
+  allUniqueUserIds,
+  filteredUserIds,
+  filteredPosts,
+  toggleUserFilter,
+}) {
   const { currentPage, totalPages, onNextPage, onPreviousPage } =
     usePagination(filteredPosts);
 
@@ -34,14 +39,9 @@ function PostsManager({ posts, setPosts, allUniqueUserIds, filteredUserIds, filt
         onNextPage={onNextPage}
         onPrevPage={onPreviousPage}
       />
-      <Sort 
-      sortOrder={sortOrder} 
-      handleSortChange={handleSortChange} 
-      />
-      <PostList
-      currentPosts = {currentPosts}
-      onSave = {handleOnSave}
-      />
+      <Sort sortOrder={sortOrder} handleSortChange={handleSortChange} />
+
+      <PostList currentPosts={currentPosts} onSave={handleOnSave} />
     </div>
   );
 }

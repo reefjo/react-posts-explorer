@@ -1,5 +1,5 @@
-import { ASCENDING, DESCENDING, NO_SORTING } from "./constants"
-const Sort = ({sortOrder, handleSortChange}) => {
+import { ASCENDING, DESCENDING, NO_SORTING } from "../utils/constants"
+const TitleSort = ({sortOrder, handleSortChange}) => {
   return (
     <div className="sorting">
     <label>Sort title by:</label>
@@ -16,4 +16,4 @@ const Sort = ({sortOrder, handleSortChange}) => {
 
   )
 }
-export default Sort
+export default TitleSort

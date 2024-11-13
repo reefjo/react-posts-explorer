@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Post.css";
+import "../styles/Post.css";
 function Post({ post, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(post.title);

@@ -1,9 +1,9 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "./PostsMap.css";
+import "../styles/PostsMap.css";
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { POSTS_MAP_CENTER } from "./constants";
+import { POSTS_MAP_CENTER } from "../utils/constants";
 
 // Custom marker icon (to fix a bug where icon is not showing if done the regular way)
 const icon = new L.Icon({

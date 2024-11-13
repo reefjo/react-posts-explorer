@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { NO_SORTING } from "./constants";
-import { getSortedPosts } from "./utils";
+import { NO_SORTING } from "../utils/constants";
+import { getSortedPosts } from "../utils/utils";
 
 function useSorting(filteredPosts) {
   const [sortOrder, setSortOrder] = useState(NO_SORTING);

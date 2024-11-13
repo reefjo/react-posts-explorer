@@ -1,12 +1,12 @@
-import "./App.css";
-import useFetch from "./useFetch";
-import PostsManager from "./PostsManager";
-import PostsMap from "./PostsMap";
-import useUserFilter from "./useUserFilter";
-import useCoordinatesMap from "./useMapCoordinates";
-import Loading from "./Loading";
-import Error from "./Error";
-import { POSTS_API_URL } from "./constants";
+import "./styles/App.css";
+import useFetch from "./hooks/useFetch";
+import PostsManager from "./components/PostsManager";
+import PostsMap from "./components/PostsMap";
+import useUserFilter from "./hooks/useUserFilter";
+import useCoordinatesMap from "./hooks/useMapCoordinates";
+import Loading from "./components/Loading";
+import Error from "./components/Error";
+import { POSTS_API_URL } from "./utils/constants";
 
 function App() {
   const {

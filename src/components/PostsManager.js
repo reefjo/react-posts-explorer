@@ -1,11 +1,11 @@
-import "./PostsManager.css";
+import "../styles/PostsManager.css";
 import Pagination from "./Pagination";
 import UserFilter from "./UserFilter";
-import { getPostsForPage } from "./utils";
-import usePagination from "./usePagination";
-import Sort from "./Sort";
-import useSorting from "./useSorting";
-import useUpdatePost from "./useUpdatePost";
+import { getPostsForPage } from "../utils/utils";
+import usePagination from "../hooks/usePagination";
+import TitleSort from "./TitleSort";
+import useSorting from "../hooks/useSorting";
+import useUpdatePost from "../hooks/useUpdatePost";
 import PostList from "./PostList";
 
 function PostsManager({
@@ -39,7 +39,7 @@ function PostsManager({
         onNextPage={onNextPage}
         onPrevPage={onPreviousPage}
       />
-      <Sort sortOrder={sortOrder} handleSortChange={handleSortChange} />
+      <TitleSort sortOrder={sortOrder} handleSortChange={handleSortChange} />
 
       <PostList currentPosts={currentPosts} onSave={handleOnSave} />
     </div>

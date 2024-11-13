@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { POSTS_PER_PAGE } from "./constants";
+import { POSTS_PER_PAGE } from "../utils/constants";
 
 const usePagination = (filteredPosts) => {
   const [currentPage, setCurrentPage] = useState(1);

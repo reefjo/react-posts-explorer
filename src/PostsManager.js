@@ -1,4 +1,4 @@
-import "./PostsHandler.css";
+import "./PostsManager.css";
 import Pagination from "./Pagination";
 import UserFilter from "./UserFilter";
 import { getPostsForPage } from "./utils";

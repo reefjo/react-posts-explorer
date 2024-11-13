@@ -10,7 +10,7 @@ import useSorting from "./useSorting";
 import useUpdatePost from "./useUpdatePost";
 import PostList from "./PostList";
 
-function PostsHandler({ posts, setPosts }) {
+function PostsManager({ posts, setPosts }) {
   const { allUniqueUserIds, filteredUserIds, filteredPosts, toggleUserFilter } =
     useUserFilter(posts);
 
@@ -49,4 +49,4 @@ function PostsHandler({ posts, setPosts }) {
   );
 }
 
-export default PostsHandler;
+export default PostsManager;

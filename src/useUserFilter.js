@@ -2,36 +2,36 @@ import { useState, useEffect, useMemo, useRef } from "react";
 
 function useUserFilter(posts){
   const uniqueUserIds = useMemo(() => [...new Set(posts.map((post) => post.userId))], [posts]);
-  const [allowedUserIds, setAllowedUserIds] = useState([]);
+  const [filteredUserIds, setFilteredUserIds] = useState([]);
 
   const isFirstRender = useRef(true); 
 
   // The goal is to update posts only when fetched initially
   useEffect(() => {
     if (uniqueUserIds.length > 0 && isFirstRender.current) {
-      console.log("We on first render. uniqueAuthorIds:", uniqueUserIds);
-      setAllowedUserIds(uniqueUserIds);
+      console.log("We on first render. uniqueUserIds:", uniqueUserIds);
+      setFilteredUserIds(uniqueUserIds);
       isFirstRender.current = false;
     }
   }, [uniqueUserIds]);
 
   const toggleUserFilter = (id) => {
-    let newAllowedIds = [...allowedUserIds];
-    if (allowedUserIds.includes(id)) {
-      newAllowedIds = newAllowedIds.filter((currentId) => currentId !== id);
+    let newFilteredIds = [...filteredUserIds];
+    if (filteredUserIds.includes(id)) {
+      newFilteredIds = newFilteredIds.filter((currentId) => currentId !== id);
     } else {
-      newAllowedIds.push(id); // allow the id
+      newFilteredIds.push(id); // allow the id
     }
-    setAllowedUserIds(newAllowedIds);
+    setFilteredUserIds(newFilteredIds);
   };
 
-  const allowedPosts = useMemo(
-    () => posts.filter((post) => allowedUserIds.includes(post.userId)),
-    [posts, allowedUserIds]
+  const filteredPosts = useMemo(
+    () => posts.filter((post) => filteredUserIds.includes(post.userId)),
+    [posts, filteredUserIds]
   );
 
 
-  return {uniqueUserIds, allowedUserIds, allowedPosts, toggleUserFilter}
+  return {uniqueUserIds, filteredUserIds, filteredPosts, toggleUserFilter}
 
 
 }

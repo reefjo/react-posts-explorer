@@ -12,11 +12,11 @@
   function PostsHandler({ posts, setPosts }) {
 
 
-    const {uniqueUserIds, allowedUserIds, allowedPosts, toggleUserFilter} = useUserFilter(posts);
+    const {uniqueUserIds, filteredUserIds, filteredPosts, toggleUserFilter} = useUserFilter(posts);
 
-    const {currentPage, totalPages, onNextPage, onPreviousPage} = usePagination(allowedPosts);
+    const {currentPage, totalPages, onNextPage, onPreviousPage} = usePagination(filteredPosts);
       
-    const {sortOrder, handleSortChange, sortedPosts} = useSorting(allowedPosts);
+    const {sortOrder, handleSortChange, sortedPosts} = useSorting(filteredPosts);
     const currentPosts = getPostsForPage(sortedPosts, currentPage);
 
     const {handleOnSave} = useUpdatePost(posts, setPosts);
@@ -25,7 +25,7 @@
       <div className="posts-handler">
         <UserFilter
           uniqueUserIds={uniqueUserIds}
-          allowedUserIds={allowedUserIds}
+          filteredUserIds={filteredUserIds}
           onToggleUserFilter={toggleUserFilter}
         />
 

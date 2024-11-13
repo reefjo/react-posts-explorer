@@ -25,7 +25,7 @@ function Post({ post, onSave }) {
   return (
     <div className="post">
       <div className="post-author">
-        <span>Author: {post.userId}</span>
+        <span>User {post.userId}</span>
       </div>
       <div className="post-edit">
       {isEditing ? (

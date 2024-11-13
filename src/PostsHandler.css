@@ -34,10 +34,10 @@
   border-radius: 5px;
   color: 'white',
 }
-.button-allowed{
+.button-filtered{
   background-color: green;
 }
-.button-not-allowed{
+.button-not-filtered{
   background-color: red;
 }
 

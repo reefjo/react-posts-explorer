@@ -4,12 +4,12 @@ const getButtonClass = (id, filteredUserIds) => {
     : "button-not-filtered";
 };
 
-const UserFilter = ({uniqueUserIds, filteredUserIds, onToggleUserFilter}) => {
-  console.log("received unique users:",uniqueUserIds)
+const UserFilter = ({allUniqueUserIds, filteredUserIds, onToggleUserFilter}) => {
+  console.log("received unique users:",allUniqueUserIds)
 
 return(
   <div className="user-filter">
-  {uniqueUserIds.map((id) => (
+  {allUniqueUserIds.map((id) => (
     <button
       key={id}
       className={`button ${getButtonClass(id, filteredUserIds)}`}

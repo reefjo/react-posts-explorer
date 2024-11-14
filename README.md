@@ -1,6 +1,3 @@
-
-Posts React App
-
 # Overview
 This is an online assessment project, but I approached it as if I were building a production-ready application designed to last for the long term. My goal was to ensure the code is clean, modular, and maintainable. So while the project is relatively small, I focused on applying best practices in even the smallest details, to make sure the code is easy to extend and scale.
 

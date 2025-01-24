@@ -11,6 +11,12 @@ Responsive Design: Optimized for different screen sizes using CSS and React comp
 
 
 
+# How It Works
+Fetching Data: Upon loading, the app makes an HTTP request to the JSONPlaceholder API to retrieve a list of posts.
+Author Filtering: Users can filter posts by the author's name using a dropdown menu.
+Sorting: Posts can be sorted based on title or body content.
+Pagination: The posts are paginated to improve performance and readability.
+Interactive Map: Random coordinates for each post are displayed on a map using React-Leaflet, providing geographical context.
 
 
 # Getting Started with Create React App

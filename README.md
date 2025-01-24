@@ -2,12 +2,12 @@
 This project is a React-based application designed to fetch and display posts from the JSONPlaceholder API. The application features key functionalities such as author filtering, sorting, pagination, and an interactive map to showcase random coordinates. It is built with a focus on scalability, modularity, and maintainability using React hooks, and follows best practices to ensure clean, maintainable code.
 
 # Features
-Fetching Data: Displays posts retrieved from the JSONPlaceholder API.
-Author Filtering: Allows users to filter posts by author.
-Sorting: Sorts posts by different criteria for enhanced user experience.
-Pagination: Implements pagination to efficiently load and display a large set of posts.
-Interactive Map: Integrated React-Leaflet for displaying posts’ random coordinates on a map.
-Responsive Design: Optimized for different screen sizes using CSS and React components.
+*  Fetching Data: Displays posts retrieved from the JSONPlaceholder API.
+*  Author Filtering: Allows users to filter posts by author.
+*  Sorting: Sorts posts by different criteria for enhanced user experience.
+*  Pagination: Implements pagination to efficiently load and display a large set of posts.
+*  Interactive Map: Integrated React-Leaflet for displaying posts’ random coordinates on a map.
+*  Responsive Design: Optimized for different screen sizes using CSS and React components.
 
 
 

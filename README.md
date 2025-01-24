@@ -1,23 +1,16 @@
-# Overview
-This project is a React-based application designed to fetch and display posts from the JSONPlaceholder API.
-It is built with a focus on scalability, modularity, and maintainability using React hooks, and follows best practices to ensure clean, maintainable code.
+# React Posts Explorer
 
-# Features
-*  Fetching Data: Displays posts retrieved from the JSONPlaceholder API.
-*  Author Filtering: Allows users to filter posts by author.
-*  Sorting: Sorts posts by different criteria for enhanced user experience.
-*  Pagination: Implements pagination to efficiently load and display a large set of posts.
-*  Interactive Map: Integrated React-Leaflet for displaying posts’ random coordinates on a map.
-*  Responsive Design: Optimized for different screen sizes using CSS and React components.
+## Overview
+A React-based application for exploring and visualizing posts from JSONPlaceholder API with advanced filtering, sorting, and mapping capabilities.
 
+## Features
+- Fetch and display posts from JSONPlaceholder API
+- Filter posts by author
+- Sort posts by title or content
+- Paginated post display
+- Interactive map with post locations
+- Responsive design
 
-
-# How It Works
-*  Fetching Data: Upon loading, the app makes an HTTP request to the JSONPlaceholder API to retrieve a list of posts.
-*  Author Filtering: Users can filter posts by the author's name using a dropdown menu.
-*  Sorting: Posts can be sorted based on title or body content.
-*  Pagination: The posts are paginated to improve performance and readability.
-*  Interactive Map: Random coordinates for each post are displayed on a map using React-Leaflet, providing geographical context.
 
 
 # Getting Started with Create React App

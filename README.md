@@ -4,7 +4,7 @@
 A React-based application designed to fetch and display posts from the JSONPlaceholder API.
 The application features key functionalities such as author filtering, sorting, pagination, and an interactive map to showcase random coordinates.
 
-![Alt text](https://github.com/reefjo/posts-react/blob/main/app-image.png?raw=true)
+![Alt text](https://github.com/reefjo/react-posts-explorer/blob/main/app-image.png?raw=true)
 
 ## Features
 - Fetching Data: Displays posts retrieved from the JSONPlaceholder API.
